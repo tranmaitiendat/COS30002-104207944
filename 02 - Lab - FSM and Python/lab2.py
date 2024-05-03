@@ -1,51 +1,51 @@
-class CoffeeMachine:
-    def __init__(self):
-        self.state = "Idle"
-        self.water_level = 100
-        self.beans_level = 100
+import random
 
-    def transition_to_idle(self):
-        self.state = "Idle"
-        print("Transitioned to Idle state.")
+game_timer = 0
+npc_state = "Idle"
 
-    def transition_to_brewing(self):
-        self.state = "Brewing"
-        print("Transitioned to Brewing state.")
+enemy_health = 1
+has_speed_boost = False
+enemy_within_range = True
 
-    def transition_to_serving(self):
-        self.state = "Serving"
-        print("Transitioned to Serving state.")
+while enemy_health > 0:
+    game_timer += 1
+    
+    print(f"Game timer: {game_timer}")
+    enemy_within_range = random.choice([True, False])
 
-    def transition_to_maintenance(self):
-        self.state = "Maintenance"
-        print("Transitioned to Maintenance state.")
+    if npc_state == "Idle":
+        if enemy_within_range:
+            print("Watch out! Enemy spotted! Engaging...")
+            npc_state = "Attack"
 
-    def handle_event(self, event):
-        if self.state == "Idle":
-            if event == "select_coffee_type":
-                if self.water_level >= 20 and self.beans_level >= 10:
-                    self.transition_to_brewing()
-                else:
-                    self.transition_to_maintenance()
-        elif self.state == "Brewing":
-            # Simulating brewing process
-            print("Brewing coffee...")
-            self.transition_to_serving()
-        elif self.state == "Serving":
-            print("Coffee served.")
-            self.transition_to_idle()
-        elif self.state == "Maintenance":
-            if event == "refill_water_and_beans":
-                self.water_level = 100
-                self.beans_level = 100
-                print("Water and beans refilled.")
-                self.transition_to_idle()
+        elif enemy_health <= 0.3:
+            print("Enemy is fleeing! Pursue the target")
+            npc_state = "Walk"
 
+    if npc_state == "Walk":
+        if has_speed_boost:
+            print("Speed boost activated! Increasing movement speed")
+            npc_state = "Run"
+        elif enemy_within_range:
+            print("Enemy caught up! Initiating attack...")
+            npc_state = "Attack"
+        
+    if npc_state == "Attack":
+        print(f"Landed a hit! Enemy health: {enemy_health:.2f}")
+        enemy_health -= 0.1
 
-# Testing the FSM
-coffee_machine = CoffeeMachine()
-print("Initial state:", coffee_machine.state)
-coffee_machine.handle_event("select_coffee_type")
-print("Current state:", coffee_machine.state)
-coffee_machine.handle_event("refill_water_and_beans")
-print("Current state:", coffee_machine.state)
+        if not enemy_within_range:
+            print("Enemy has fled! Stand down")
+            npc_state = "Idle"
+        
+    if npc_state == "Run":
+        if not has_speed_boost:
+            print("Speed boost worn off! Returning to normal speed")
+            npc_state = "Walk"
+        elif enemy_within_range:
+            print("Enemy caught up! Initiating attack...")
+            npc_state = "Attack"
+
+    print("===========================================")
+
+print("GAME OVER!")
