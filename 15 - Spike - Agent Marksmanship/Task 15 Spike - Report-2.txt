@@ -1,0 +1,45 @@
+SPIKE OUTCOME REPORT
+--------------------
+
+NUMBER: 15
+SPIKE TITLE: Emergent Group Behaviour
+PERSONAL: Mai Tien Dat Tran- 104207944
+
+GOALS:
+	"The method of targeting an agent uses to attack a target with a range weapon should depend on weapon projectile
+characteristics. In particular speed (infinite or finite), accuracy and range are all worth considering as part of a
+targeting plan.
+	Create an agent targeting simulation with:
+		(a) an attacking agent (can be stationary),
+		(b) a moving target agent (can simply move between two-way points), and
+		(c) a selection of weapons that can fire projectiles with different properties.
+	Be able to demonstrate that the attacking agent that can successfully target (hit) with different weapon properties:
+		(a) Fast moving accurate projectile. (Rifle)
+		(b) Slow moving accurate projectile. (Rocket)
+		(c) Fast moving low accuracy projectile (Hand Gun)
+		(d) Slow moving low accuracy projectile (Hand grenade)"
+TECHNOLOGIES, TOOLS, AND RESOURCES USED:
+	Tools:
+		Python 3.12.0
+		ChatGPT. Retrieved from: https://chat.openai.com/
+		Claude. Retrieved from https://claude.ai/chats
+	Resources:
+		Lab 11 - Steering #1 - Seek, Arrive, Flee
+		Lab 12 - Steering #2 - Wander and Paths
+	
+
+
+graphics.py: Minor updates were made to display additional labels showing the attributes of the prey and hunter agents, such as the prey's collision range, health, targets, and the hunter's mode, inaccuracy angle rate, and estimated time to collision.
+world.py: The World class was modified to handle two types of agents: Prey and Hunter. The prey moves between two targets, while the hunter remains stationary and attempts to shoot projectiles at the prey. The user can interact with the simulation using various keyboard keys and mouse buttons to control the hunter's mode, shoot projectiles, and set the prey's target positions.
+agent.py: The Agent class underwent significant updates to become an abstract class. The basic seek functionality from the previous lab was retained, along with other steering behaviors like fleeing and wandering for potential future extensions. Two child classes were introduced:
+
+Prey: This class has a collision range, two targets (represented by red and blue Star renderables), and seeks one of the targets. If the prey gets too close to one target, it switches to seeking the other. Methods are provided to set the new positions of the targets.
+Hunter: This class represents a stationary agent with a max_speed of 0. It has two methods for shooting projectiles: "attack" and "shoot". The "attack" method uses a systematic approach to ensure collision between the hunter's projectile and the prey at a specific time and location. The projectile speed and damage vary based on the selected mode (Rifle, Rocket, Hand Gun, or Hand Grenade). The "inaccurateAngleRate" attribute introduces inaccuracy for hand gun and hand grenade projectiles by rotating the velocity vector. The "shoot" method initializes a Projectile object when the user presses the Space key.
+
+
+
+Potential Issues and Risks:
+
+
+Recommendations:
+The solution can be further extended by focusing on more complex interaction scenarios, such as hunter-prey dynamics with multiple preys, hunters, or both, building upon the concepts demonstrated in lab 13. Cop
