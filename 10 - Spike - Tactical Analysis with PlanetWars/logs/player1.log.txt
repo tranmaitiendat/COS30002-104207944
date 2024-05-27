@@ -1,0 +1,24 @@
+I'm dead. BestWorst, [1]
+   1: Player 1 launched 78 (left 27) ships from planet 2 to planet 1
+  12: Player 1 launched 61 (left 21) ships from planet 2 to planet 12
+  22: Player 1 launched 86 (left 29) ships from planet 1 to planet 13
+  32: Player 1 launched 71 (left 24) ships from planet 12 to planet 22
+  48: Player 1 launched 108 (left 36) ships from planet 13 to planet 23
+  64: Player 1 launched 147 (left 50) ships from planet 1 to planet 14
+  75: Player 1 launched 147 (left 49) ships from planet 12 to planet 15
+  95: Player 1 launched 168 (left 56) ships from planet 13 to planet 20
+ 117: Player 1 launched 223 (left 75) ships from planet 14 to planet 21
+ 141: Player 1 launched 268 (left 90) ships from planet 1 to planet 16
+ 150: Player 1 launched 274 (left 92) ships from planet 22 to planet 17
+ 170: Player 1 launched 322 (left 108) ships from planet 15 to planet 8
+ 182: Player 1 launched 357 (left 120) ships from planet 12 to planet 9
+ 191: Player 1 launched 358 (left 120) ships from planet 23 to planet 18
+ 215: Player 1 launched 402 (left 134) ships from planet 13 to planet 19
+ 231: Player 1 launched 398 (left 133) ships from planet 14 to planet 4
+ 250: Player 1 launched 404 (left 135) ships from planet 20 to planet 5
+ 268: Player 1 launched 448 (left 150) ships from planet 1 to planet 6
+ 280: Player 1 launched 459 (left 153) ships from planet 21 to planet 7
+ 288: Player 1 launched 435 (left 145) ships from planet 15 to planet 10
+ 303: Player 1 launched 453 (left 151) ships from planet 12 to planet 11
+ 317: Player 1 launched 444 (left 149) ships from planet 22 to planet 3
+ 358: I won! BestWorst [1]

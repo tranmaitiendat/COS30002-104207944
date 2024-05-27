@@ -1,0 +1,18 @@
+I'm dead. Simple, [2]
+   1: Player 2 launched 52 (left 53) ships from planet 3 to planet 2
+  22: Player 2 launched 79 (left 79) ships from planet 3 to planet 2
+  43: Player 2 launched 92 (left 92) ships from planet 3 to planet 2
+  64: Player 2 launched 98 (left 99) ships from planet 3 to planet 2
+  85: Player 2 launched 102 (left 102) ships from planet 3 to planet 2
+ 106: Player 2 launched 103 (left 104) ships from planet 3 to planet 2
+ 127: Player 2 launched 104 (left 105) ships from planet 3 to planet 2
+ 148: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 169: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 190: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 211: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 232: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 253: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 274: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 295: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 316: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
+ 337: Player 2 launched 105 (left 105) ships from planet 3 to planet 2
