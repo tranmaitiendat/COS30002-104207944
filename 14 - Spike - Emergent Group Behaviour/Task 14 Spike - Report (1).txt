@@ -1,0 +1,63 @@
+SPIKE REPORT #14: Emergent Group Behavior Simulation
+Author: Mai Tien Dat Tran (104207944)
+OBJECTIVES
+Explore the use of cohesion, separation, and alignment steering forces to create natural-looking emergent group behaviors in multi-agent systems.
+TOOLS & RESOURCES
+
+Python 3.12.0
+AI assistance: ChatGPT (https://chat.openai.com/) and Claude (https://claude.ai/chats)
+Foundational code from Lab 11 (Basic Steering) and Lab 12 (Wander & Paths)
+
+IMPLEMENTATION DETAILS
+Core modules (vector2d.py, point2d.py, matrix33.py, main.py, game.py) largely unchanged from Labs 11-12. Key modifications:
+
+graphics.py: Added labels for total agents, currently selected agent and its properties
+world.py:
+
+World class now manages list of Agents and their collective steering mode
+Added 'chosenIndex' property to track currently selected agent (for display/editing)
+Keyboard controls:
+
+'A' to add new agent with current world steering mode
+'W' for "Wander" mode (all agents move randomly)
+'S' for "Separation" mode (agents maintain distance)
+'C' for "Cohesion" mode (agents converge to shared point)
+'L' for "Alignment" mode (agents match direction)
+
+
+
+
+agent.py:
+
+Agent class significantly expanded to support different steering modes
+Each agent tracks 'near' and 'far' proximity ranges (with visual indicators)
+Mode-specific behaviors:
+
+Wander: Random movement via 'wander()' method from Lab 12
+Separation: Move away from nearest agent within 'near' range, or wander if no neighbors
+Cohesion: Seek average position of all agents (self included) within 'near' range, or wander if alone
+Alignment: Match average heading of all agents within 'far' range, or wander if no neighbors. Normalize summed neighbor vectors to prevent coordinate overflow at large N.
+
+
+
+
+
+
+
+Basic wander, separation, cohesion and alignment behaviors successfully implemented
+In Cohesion mode, agents sometimes split into distinct sub-flocks that merge over time, vs converging immediately as a single group. Suggests opportunities for further refinement.
+
+LIMITATIONS & RISKS
+
+Computational cost may become prohibitive for very large numbers of agents
+
+Opportunity to explore optimized algorithms and data structures
+
+
+
+FUTURE DIRECTIONS
+Potential extensions include:
+
+Introducing more sophisticated multi-agent scenarios, e.g. predator-prey ecosystems with multiple species (building on Lab 13)
+Developing a 3D version of the simulation with aerial/aquatic group behaviors
+Optimizing neighbor search and force calculation for larger agent populations
