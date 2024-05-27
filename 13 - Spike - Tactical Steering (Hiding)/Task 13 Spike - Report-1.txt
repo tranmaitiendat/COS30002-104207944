@@ -1,0 +1,58 @@
+SPIKE REPORT #13: Tactical Steering & Hiding Behavior
+Submitted by: mai tien dat tran (104207944)
+OVERVIEW
+This spike focused on implementing a predator-prey simulation with tactical hiding. Key goals included:
+
+Prey agents that seek concealment behind environmental objects to evade hunter agents
+Distinct visual representations and capabilities for hunter vs prey agents
+Visual indicators of potential hiding spots for prey to choose from
+Prey agents that intelligently select optimal hiding locations based on tactical analysis
+Hiding that occurs behind objects, not inside them
+
+TECHNICAL DETAILS
+Languages, Tools & Resources:
+
+Python 3.12.0
+AI assistance from ChatGPT (https://chat.openai.com/) and Claude (https://claude.ai/chats)
+Adapted code from Lab 11 (Steering Behaviors) and Lab 12 (Wander & Paths)
+
+Implementation Approach:
+
+Reused Vector2D, Matrix33 and Point2D classes from prior labs without changes
+Minor UI tweaks to graphics.py to show agent properties like mass, speed, status
+Retained core game loop/state management in game.py
+Refactored world.py to manage prey and hunter agents instead of generic agent list
+Significant changes to agent.py:
+
+Agent class converted to abstract base with core steering methods
+Added Prey subclass with Idle and Hiding states, obstacle avoidance, threat-based hiding spot selection
+Added Hunter subclass with Wander and Chase states
+
+
+Created new Obstacle class representing concealable objects
+
+Circular shape with color-coded safety level (based on hunter proximity)
+Light green = safe, dark green = unsafe, orange = optimal
+
+
+
+
+
+Successfully demonstrated prey agents quickly identifying and moving to optimal hiding spots when hunters approach
+Smoothly integrated basic seeking and evasion AI routines from Lab 12
+
+LIMITATIONS & RISKS
+
+Obstacle avoidance not always effective - high agent acceleration can lead to clipping
+Crashes observed with large numbers of prey agents
+
+Opportunity for optimization in picking hiding spots and chase targets
+
+
+
+NEXT STEPS
+To enhance realism and challenge, explore more advanced features such as:
+
+Coordinated pack-hunting and herding behaviors
+Allowing prey to leverage memory of past successful hiding spots
+Dynamic environmental hazards and concealment options
