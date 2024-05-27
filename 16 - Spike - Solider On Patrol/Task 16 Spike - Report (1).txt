@@ -1,0 +1,52 @@
+SPIKE OUTCOME REPORT
+--------------------
+
+NUMBER: 16
+SPIKE TITLE: Soldier on Patrol
+PERSONAL: Mai Tien Dat Tran - 104207944
+
+GOALS: "Layered state-machine designs that combine higher-level modes of behavior with lower-level step behavior can be exploited by agents in games.Make a "soldier on patrol" simulation in which an agent exhibits both low-level and several high-level FSM behavioral patterns. The model needs to display, at the very least: 
+(a) High-level "patrol" and "attack" modes
+(b) To ensure that the agent visits (seeks/arrives at?) several patrol-path way points, the "patrol" mode has to use an FSM to regulate low-level states.
+(c) To manage low-level combat states, the "attack" mode needs to make use of an FSM. (Consider "shooting" and "reloading"; you control the actual states and transition rules.)USED TOOLS, TECHNOLOGIES, AND RESOURCES:
+
+	Tools:
+		Python 3.12.0
+		ChatGPT. Retrieved from: https://chat.openai.com/
+		Claude. Retrieved from https://claude.ai/chats
+	Resources:
+		Lab 11 - Steering #1 - Seek, Arrive, Flee
+		Lab 12 - Steering #2 - Wander and Paths
+	
+TASKS UNDER TOUCH:
+ 1. This task's codebase, which includes the files main.py, point2d.py, vector2d.py, matrix33.py, game.py, and path.py, is also taken from labs 11 and 12.
+2. The graphic.py file has been updated to support a variety of labels displayed on the screen, such as:
+
+		The hunter's mode (attack/patrol)
+		Hunter's status (according to the mode)
+		In patrol mode, Hunter's traveled distance is utilized to ascertain the status.
+		The mean health of the targets, utilized to ascertain their attack mode state
+
+3. The World class (found in the world.py file) was expanded to include a two-mode specialized hunter and a list of basic prey. 
+		To alter the target and determine the direction of the projectile(s) generated in attack mode, use the left mouse button.
+		The keys "1" and "2" switch the hunter's mode of operation between patrol and attack, 
+               while "A" adds a new prey to the "preys" attribute list.
+
+The system consists of three main classes derived from the base class "agent": Prey, Hunter, and Projectile.
+The Prey class is a basic agent that explores the map, has health, a collision range, and a renderable component.
+The Hunter class is more complex and has two modes:
+a. Patrol mode: The hunter finds a path using seek and arrive methods with varying acceleration based on the lifetime travel distance.
+b. Attack mode: The hunter becomes stationary and shoots projectiles depending on the average health rate of all active prey.
+The number and spread of projectiles shot by the Hunter in Attack mode depends on the average health rate of the prey:
+a. (0.75, 1]: "shoot massively spreadly" - 12 projectiles in every direction
+b. (0.5, 0.75]: "shoot spreadly" - 3 projectiles (one towards the target, two others rotated 15 and -15 degrees)
+c. (0.25, 0.5]: "shoot doubly" - 2 projectiles consecutively towards the target
+d. Remaining range: "shoot normally" - 1 projectile towards the target
+The Projectile class is a moving agent that travels in a specific direction. If it enters a prey's collision range, the prey's health is reduced by 10.0, and the projectile is removed from the world.
+The FSM class in the agent.py file handles the mode management, including sub-states, for the Hunter.
+
+Open issues/risks and recommendations:
+
+The FSM class might be too complicated and hard to read. Consider separating it into two sub-FSMs: one for the patrol mode and one for the attack mode of the Hunter.
+In the "shoot massively spreadly" state of the attack mode, the angles of the projectiles sometimes differ from the intended implementation (each pair of projectiles should have an angle of 30 degrees between their acceleration vectors). The issue is currently unresolved.
+ 
